@@ -1,0 +1,15 @@
+@import url("./layout.css");
+@import url("./components.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans", sans-serif;
+}
+.full-screen{
+    background-image: url("../images/background2.jpg");
+    /* background-image: url("https://wallpapercg.com/media/ts_orig/6303.webp"); */
+    background-repeat:no-repeat;
+
+    background-size:cover;
+}
