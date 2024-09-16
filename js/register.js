@@ -3,9 +3,10 @@ let form = document.getElementsByClassName('register-form')[0];
 console.log(register)
 let userList = {}
 let users_json = localStorage.getItem('users');
-if(users_json != null){
+if(users_json !== null){
     userList = JSON.parse(users_json);
 }
+console.log(userList)
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -25,7 +26,7 @@ form.addEventListener("submit",(e)=>{
     if(password!==confirmPassword){
         alert("Password not same")
     }
-    // let users  = localStorage.getItem("user")
+    let users  = localStorage.getItem("user")
     if(email in userList){
         alert("User already exist")
     }
@@ -37,7 +38,7 @@ form.addEventListener("submit",(e)=>{
     userList[email] = user;
   
 
-    localStorage.setItem("user",JSON.stringify(userList))
+    localStorage.setItem("users",JSON.stringify(userList))
     form.reset();
     window.location.href = "SignIn.html"
 })

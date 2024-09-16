@@ -7,19 +7,22 @@ let password1 =document.getElementById('pass');
 let userList = {};
 let loginList = {};
 form.addEventListener("submit",(e)=>{
-    let user_json = localStorage.getItem("users")
+    e.preventDefault();
+    let user_json = localStorage.getItem('users')
    let email = email1.value;
    let password = password1.value;
-    if(!user_json){
-        user_json = JSON.parse(user_json)
+    if(user_json != null){
+        userList = JSON.parse(user_json)
     }
-    
-    console.log(email,password,user_json,userList)
+    console.log(userList)
+    // console.log(email,user_json)
+    // console.log(email,password,user_json,userList)
     if(!email || !password){
         alert('All fields are required');
         return;
     }
     if(email in userList == false){
+        console.log(userList[email])
         alert('User does not exist');
         return;
    }
@@ -51,7 +54,7 @@ function generateToken(){
     let str = ""
     for(let i = 1; i<=10; i++){
        let index = parseInt(Math.random() * chars.length);
-    str = str + collection[index]
+    str = str + chars[index]
     }
 
     return str;
